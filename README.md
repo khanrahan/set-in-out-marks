@@ -1,7 +1,9 @@
 # Set In and Out Marks
-Plugin for Autodesk Flame software.
+Plugin for [Autodesk Flame software](http://www.autodesk.com/products/flame).
 
-Set in/out or clear all marks from selected sequences.
+Set in/out or clear all marks on selected sequences.
+
+![screenshot](screenshot.png)
 
 ## Installation
 To make available to all users on the workstation, copy `set_in_out_marks.py` to `/opt/Autodesk/shared/python`
