@@ -550,7 +550,7 @@ class FlameSlider(QtWidgets.QLineEdit):
                     selection-background-color: rgb(55, 65, 75);
                     border: none;
                     padding-left: 5px;
-                    font: 14pt "Discreet"}
+                    font: 14px "Discreet"}
                 QLineEdit:hover {
                     border: 1px solid rgb(90, 90, 90)}''')
 
@@ -563,7 +563,7 @@ class FlameSlider(QtWidgets.QLineEdit):
                     selection-background-color: rgb(55, 65, 75);
                     border: none;
                     padding-left: 5px;
-                    font: 14pt "Discreet"}
+                    font: 14px "Discreet"}
                 QLineEdit:hover {
                     border: 1px solid rgb(90, 90, 90)}''')
         calc_version = '1.2'
@@ -757,7 +757,7 @@ class FlameSlider(QtWidgets.QLineEdit):
                     selection-background-color: rgb(73, 86, 99);
                     border: none;
                     padding-left: 5px;
-                    font: 14pt "Discreet"}
+                    font: 14px "Discreet"}
                 QLineEdit:hover {
                     border: 1px solid rgb(90, 90, 90)}''')
 
@@ -781,7 +781,7 @@ class FlameSlider(QtWidgets.QLineEdit):
                         selection-background-color: rgb(55, 65, 75);
                         border: none;
                         padding-left: 5px;
-                        font: 14pt "Discreet"}
+                        font: 14px "Discreet"}
                     QLineEdit:hover {
                         border: 1px solid rgb(90, 90, 90)}''')
 
