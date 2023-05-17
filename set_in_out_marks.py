@@ -32,7 +32,7 @@ from functools import partial
 from PySide2 import QtWidgets, QtCore, QtGui
 
 TITLE = "Set In and Out Marks"
-VERSION_INFO = (1, 0, 0)
+VERSION_INFO = (1, 0, 1)
 VERSION = ".".join([str(num) for num in VERSION_INFO])
 TITLE_VERSION = "{} v{}".format(TITLE, VERSION)
 MESSAGE_PREFIX = "[PYTHON HOOK]"
@@ -180,7 +180,7 @@ class FlamePushButton(QtWidgets.QPushButton):
         self.setMinimumSize(button_width, 28)
         self.setMaximumSize(button_width, 28)
         self.setFocusPolicy(QtCore.Qt.NoFocus)
-#        self.clicked.connect(connect)  # produces error on 2021.1
+        self.clicked.connect(connect)  # produces error on 2021.1
         self.setStyleSheet('''
             QPushButton {
                 color: rgb(154, 154, 154);
@@ -438,7 +438,7 @@ class FlameSlider(QtWidgets.QLineEdit):
 
         def button_press(key):
 
-            if self.clean_line:
+            if self.clean_line is True:
                 calc_lineedit.setText('')
 
             calc_lineedit.insert(key)
@@ -476,7 +476,7 @@ class FlameSlider(QtWidgets.QLineEdit):
 
         def enter():
 
-            if self.clean_line:
+            if self.clean_line is True:
                 return calc_window.close()
 
             if calc_lineedit.text():
