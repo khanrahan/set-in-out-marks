@@ -157,24 +157,30 @@ class FlameLabel(QtWidgets.QLabel):
 
 
 class FlamePushButton(QtWidgets.QPushButton):
-    """Custom Qt Flame Push Button Widget
+    '''
+    Custom Qt Flame Push Button Widget v2.1
 
-    This is the original Push Button Widget with just the StyleSheet from the most
-    recent iteration on pyflame.com.
-    """
+    button_name: text displayed on button [str]
+    button_checked: True or False [bool]
+    connect: execute when button is pressed [function]
+    button_width: (optional) default is 150. [int]
 
-    def __init__(self, name, parent, checked, connect, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    Usage:
 
-        self.setText(name)
-        self.setParent(parent)
+        pushbutton = FlamePushButton('Button Name', False)
+    '''
+
+    def __init__(self, button_name, button_checked, connect=None, button_width=150):
+        super(FlamePushButton, self).__init__()
+
+        self.setText(button_name)
         self.setCheckable(True)
-        self.setChecked(checked)
-        self.clicked.connect(connect)
+        self.setChecked(button_checked)
+        self.setMinimumSize(button_width, 28)
+        self.setMaximumSize(button_width, 28)
         self.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.setMinimumSize(150, 28)
-        self.setMaximumSize(150, 28)
-        self.setStyleSheet("""
+        self.clicked.connect(connect)  # produces error on 2021.1
+        self.setStyleSheet('''
             QPushButton {
                 color: rgb(154, 154, 154);
                 background-color: qlineargradient(
@@ -192,7 +198,7 @@ class FlamePushButton(QtWidgets.QPushButton):
                     stop: .94 rgb(44, 54, 68));
                 border-left: 1px solid rgb(58, 58, 58);
                 border-right: 1px solid rgb(44, 54, 68);
-                padding-left: 5px; font: 14px 'Discreet'}
+                padding-left: 5px; font: 14px "Discreet"}
             QPushButton:checked {
                 color: rgb(217, 217, 217);
                 background-color: qlineargradient(
@@ -212,7 +218,8 @@ class FlamePushButton(QtWidgets.QPushButton):
                 border-right: 1px solid rgb(50, 101, 173);
                 padding-left: 5px;
                 font: italic}
-            QPushButton:hover {border: 1px solid rgb(90, 90, 90)}'
+            QPushButton:hover {
+                border: 1px solid rgb(90, 90, 90)}
             QPushButton:disabled {
                 color: #6a6a6a;
                 background-color: qlineargradient(
@@ -224,7 +231,7 @@ class FlamePushButton(QtWidgets.QPushButton):
             QToolTip {
                 color: rgb(170, 170, 170);
                 background-color: rgb(71, 71, 71);
-                border: 10px solid rgb(71, 71, 71)}""")
+                border: 10px solid rgb(71, 71, 71)}''')
 
 
 class FlamePushButtonMenu(QtWidgets.QPushButton):
