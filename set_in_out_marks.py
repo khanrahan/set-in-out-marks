@@ -851,7 +851,7 @@ class FlameSlider(QtWidgets.QLineEdit):
             self.setText('%.2f' % float(value))
 
 
-class SetInOutMarks(object):
+class SetInOutMarks:
     """Set in/out marks or clear all marks on selected PyClips."""
 
     def __init__(self, selection):
