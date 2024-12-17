@@ -316,7 +316,6 @@ class FlamePushButtonMenu(QtWidgets.QPushButton):
 
     def populate_menu(self, options):
         """Empty the menu then reassemble the options."""
-
         self.pushbutton_menu.clear()
 
         for option in options:
@@ -873,7 +872,6 @@ class SetInOutMarks(object):
     @staticmethod
     def message(string):
         """Print message to shell window and append global MESSAGE_PREFIX."""
-
         print(' '.join([MESSAGE_PREFIX, string]))
 
     @staticmethod
@@ -881,13 +879,11 @@ class SetInOutMarks(object):
         """Necessary after changing attributes to have the changes show up on the
         Desktop.  Otherwise, the script runs, but the change will not be shown on the
         thumbnail until you tap on the UI."""
-
         import flame
         flame.execute_shortcut('Refresh Thumbnails')
 
     def toggle_action(self):
         """Disable buttons and sliders if button set to Clear All Marks."""
-
         self.action = self.btn_action.text()
 
         if self.action == self.actions[0]:
@@ -904,7 +900,6 @@ class SetInOutMarks(object):
 
     def toggle_in_slider(self):
         """Enable/disable slider when button is toggled."""
-
         if self.btn_in.isChecked():
             self.slider_in.setEnabled(True)
         else:
@@ -912,7 +907,6 @@ class SetInOutMarks(object):
 
     def toggle_out_slider(self):
         """Enable/disable slider when button is toggled."""
-
         if self.btn_out.isChecked():
             self.slider_out.setEnabled(True)
         else:
@@ -920,12 +914,10 @@ class SetInOutMarks(object):
 
     def get_in_frame(self):
         """Pass in frame value from UI to class instance."""
-
         self.in_frame = int(self.slider_in.text())
 
     def get_out_frame(self):
         """Pass out frame value from UI to class instance."""
-
         self.out_frame = int(self.slider_out.text())
 
     def process_selection(self):
@@ -951,7 +943,6 @@ class SetInOutMarks(object):
 
         def okay_button():
             """Execute when ok button is pressed."""
-
             self.process_selection()
             self.refresh()
             self.window.close()
@@ -959,7 +950,6 @@ class SetInOutMarks(object):
 
         def cancel_button():
             """Execute when cancel button is pressed."""
-
             self.window.close()
             self.message('Cancelled!')
 
@@ -1056,7 +1046,6 @@ class SetInOutMarks(object):
 def scope_clip(selection):
     """PyClip includes PySequences.  It is the parent, so this will be true
     for individual clips or full sequences."""
-
     import flame
 
     for item in selection:
