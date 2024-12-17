@@ -3,7 +3,7 @@ Script Name: Set In & Out Marks
 Written by: Kieran Hanrahan
 
 Script Version: 1.0.2
-Flame Version: 2021.1
+Flame Version: 2023
 
 URL: http://www.github.com/khanrahan/set-in-out-marks
 
@@ -30,7 +30,6 @@ To Install:
     /opt/Autodesk/user/<user name>/python
 '''
 
-from __future__ import print_function
 from functools import partial
 from PySide2 import QtWidgets, QtCore, QtGui
 
@@ -1084,5 +1083,5 @@ def get_media_panel_custom_ui_actions():
              'actions': [{'name': 'Set In and Out Marks',
                           'isVisible': scope_clip,
                           'execute': SetInOutMarks,
-                          'minimumVersion': '2021.1'}]
+                          'minimumVersion': '2023.0.0.0'}]
             }]
