@@ -36,7 +36,7 @@ from PySide2 import QtWidgets, QtCore, QtGui
 TITLE = 'Set In and Out Marks'
 VERSION_INFO = (1, 0, 2)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
-TITLE_VERSION = '{} v{}'.format(TITLE, VERSION)
+TITLE_VERSION = f'{TITLE} v{VERSION}'
 MESSAGE_PREFIX = '[PYTHON HOOK]'
 
 
@@ -857,7 +857,7 @@ class SetInOutMarks(object):
         self.selection = selection
 
         self.message(TITLE_VERSION)
-        self.message('Script called from {}'.format(__file__))
+        self.message(f'Script called from {__file__}')
 
         self.window_size = {'x': 646, 'y': 156}
 
@@ -926,17 +926,15 @@ class SetInOutMarks(object):
             if self.action == self.actions[0]:
                 if self.btn_in.isChecked():
                     clip.in_mark = self.in_frame
-                    self.message('{} mark In at frame {}'.format(clip.name.get_value(),
-                                                                 self.in_frame))
+                    self.message(f'{clip.name.get_value()} mark In at frame {self.in_frame}')
                 if self.btn_out.isChecked():
                     clip.out_mark = self.out_frame
-                    self.message('{} mark Out at frame {}'.format(clip.name.get_value(),
-                                                                  self.out_frame))
+                    self.message(f'{clip.name.get_value()} mark Out at frame {self.out_frame}')
             if self.action == self.actions[1]:
                 clip.in_mark = None
-                self.message('{} mark In removed'.format(clip.name.get_value()))
+                self.message(f'{clip.name.get_value()} mark In removed')
                 clip.out_mark = None
-                self.message('{} mark Out removed'.format(clip.name.get_value()))
+                self.message(f'{clip.name.get_value()} mark Out removed')
 
     def main_window(self):
         """The only popup window."""
