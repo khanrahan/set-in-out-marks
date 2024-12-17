@@ -32,6 +32,7 @@ To Install:
 
 from functools import partial
 
+import flame
 from PySide2 import QtCore, QtGui, QtWidgets
 
 TITLE = 'Set In and Out Marks'
@@ -1043,14 +1044,12 @@ class SetInOutMarks(object):
 
 
 def scope_clip(selection):
-    """PyClip includes PySequences.  It is the parent, so this will be true
-    for individual clips or full sequences."""
-    import flame
+    """Determine if selection is only PyClip objects.
 
-    for item in selection:
-        if isinstance(item, flame.PyClip):
-            return True
-    return False
+    PyClip includes PySequence.  It is the parent, so this will be true
+    for individual clips or full sequences.
+    """
+    return any(isinstance(item, flame.PyClip) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
