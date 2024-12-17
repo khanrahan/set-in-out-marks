@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 '''
 Script Name: Set In & Out Marks
 Written by: Kieran Hanrahan
@@ -36,11 +34,11 @@ from __future__ import print_function
 from functools import partial
 from PySide2 import QtWidgets, QtCore, QtGui
 
-TITLE = "Set In and Out Marks"
-VERSION_INFO = (1, 0, 1)
-VERSION = ".".join([str(num) for num in VERSION_INFO])
-TITLE_VERSION = "{} v{}".format(TITLE, VERSION)
-MESSAGE_PREFIX = "[PYTHON HOOK]"
+TITLE = 'Set In and Out Marks'
+VERSION_INFO = (1, 0, 2)
+VERSION = '.'.join([str(num) for num in VERSION_INFO])
+TITLE_VERSION = '{} v{}'.format(TITLE, VERSION)
+MESSAGE_PREFIX = '[PYTHON HOOK]'
 
 
 class FlameButton(QtWidgets.QPushButton):
@@ -623,9 +621,9 @@ class FlameSlider(QtWidgets.QLineEdit):
             pass
 
         class FlameButton(QtWidgets.QPushButton):
-            """
+            '''
             Custom Qt Flame Button Widget
-            """
+            '''
 
             def __init__(
                     self, button_name, size_x, size_y, connect, parent,
@@ -1082,7 +1080,7 @@ def scope_clip(selection):
 
 def get_media_panel_custom_ui_actions():
 
-    return [{'name': "Edit...",
+    return [{'name': 'Edit...',
              'actions': [{'name': 'Set In and Out Marks',
                           'isVisible': scope_clip,
                           'execute': SetInOutMarks,
