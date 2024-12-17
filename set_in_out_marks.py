@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 
 '''
-Set In & Out Marks
+Script Name: Set In & Out Marks
+Written by: Kieran Hanrahan
 
-URL:
-    http://www.github.com/khanrahan/set-in-out-marks
+Script Version: 1.0.2
+Flame Version: 2021.1
 
+URL: http://www.github.com/khanrahan/set-in-out-marks
+
+Creation Date: 01.13.23
+Update Date: 07.07.23
 
 Description:
     Set in/out or clear all marks on selected clips.
