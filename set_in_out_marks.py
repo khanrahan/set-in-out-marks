@@ -878,10 +878,12 @@ class SetInOutMarks:
 
     @staticmethod
     def refresh():
-        """Necessary after changing attributes to have the changes show up on the
+        """Refresh Flame UI.
+
+        Necessary after changing attributes to have the changes show up on the
         Desktop.  Otherwise, the script runs, but the change will not be shown on the
-        thumbnail until you tap on the UI."""
-        import flame
+        thumbnail until you tap on the UI.
+        """
         flame.execute_shortcut('Refresh Thumbnails')
 
     def toggle_action(self):
@@ -1053,7 +1055,7 @@ def scope_clip(selection):
 
 
 def get_media_panel_custom_ui_actions():
-
+    """Python hook to add custom item to right click menu in MediaPanel and Desktop."""
     return [{'name': 'Edit...',
              'actions': [{'name': 'Set In and Out Marks',
                           'isVisible': scope_clip,
