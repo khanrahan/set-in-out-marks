@@ -107,8 +107,7 @@ class FlameButton(QtWidgets.QPushButton):
 
 
 class FlameLabel(QtWidgets.QLabel):
-    '''
-    Custom Qt Flame Label Widget v2.1
+    """Custom Qt Flame Label Widget
 
     label_name:  text displayed [str]
     label_type:  (optional) select from different styles:
@@ -116,12 +115,11 @@ class FlameLabel(QtWidgets.QLabel):
     label_width: (optional) default is 150 [int]
 
     Usage:
-
         label = FlameLabel('Label Name', 'normal', 300)
-    '''
+    """
 
     def __init__(self, label_name, label_type='normal', label_width=150):
-        super(FlameLabel, self).__init__()
+        super().__init__()
 
         self.setText(label_name)
         self.setMinimumSize(label_width, 28)
@@ -129,32 +127,31 @@ class FlameLabel(QtWidgets.QLabel):
         self.setFocusPolicy(QtCore.Qt.NoFocus)
 
         # Set label stylesheet based on label_type
-
         if label_type == 'normal':
-            self.setStyleSheet('''
+            self.setStyleSheet("""
                 QLabel {
                     color: rgb(154, 154, 154);
-                    font: 14px "Discreet"}
+                    font: 14px 'Discreet'}
                 QLabel:disabled {
-                    color: rgb(106, 106, 106)}''')
+                    color: rgb(106, 106, 106)}""")
         elif label_type == 'underline':
             self.setAlignment(QtCore.Qt.AlignCenter)
-            self.setStyleSheet('''
+            self.setStyleSheet("""
                 QLabel {
                     color: rgb(154, 154, 154);
                     border-bottom: 1px inset rgb(40, 40, 40);
-                    font: 14px "Discreet"}
+                    font: 14px 'Discreet'}
                 QLabel:disabled {
-                    color: rgb(106, 106, 106)}''')
+                    color: rgb(106, 106, 106)}""")
         elif label_type == 'background':
-            self.setStyleSheet('''
+            self.setStyleSheet("""
                 QLabel {
                     color: rgb(154, 154, 154);
                     background-color: rgb(30, 30, 30);
                     padding-left: 5px;
-                    font: 14px "Discreet"}
+                    font: 14px 'Discreet'}
                 QLabel:disabled {
-                    color: rgb(106, 106, 106)}''')
+                    color: rgb(106, 106, 106)}""")
 
 
 class FlamePushButton(QtWidgets.QPushButton):
@@ -986,8 +983,8 @@ class SetInOutMarks(object):
         self.window.setFocusPolicy(QtCore.Qt.StrongFocus)
 
         # Label
-        self.label_action = FlameLabel('Action', 'normal', label_width=106)
-        self.label_marks = FlameLabel('Marks', 'normal', label_width=106)
+        self.label_action = FlameLabel('Action', 'normal', 106)
+        self.label_marks = FlameLabel('Marks', 'normal', 106)
 
         # Slider
         self.slider_in = FlameSlider(self.in_frame, 1, 9999, False)
