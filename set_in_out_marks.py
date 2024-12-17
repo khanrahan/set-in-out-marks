@@ -31,7 +31,8 @@ To Install:
 """
 
 from functools import partial
-from PySide2 import QtWidgets, QtCore, QtGui
+
+from PySide2 import QtCore, QtGui, QtWidgets
 
 TITLE = 'Set In and Out Marks'
 VERSION_INFO = (1, 0, 2)
