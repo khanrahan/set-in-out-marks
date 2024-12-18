@@ -932,15 +932,19 @@ class SetInOutMarks:
         self.out_frame = int(self.slider_out.text())
 
     def process_selection(self):
-
+        """The actual work is done."""
         for clip in self.selection:
             if self.action == self.actions[0]:
                 if self.btn_in.isChecked():
                     clip.in_mark = self.in_frame
-                    self.message(f'{clip.name.get_value()} mark In at frame {self.in_frame}')
+                    self.message(
+                            f'{clip.name.get_value()} mark In at ' +
+                            f'frame {self.in_frame}')
                 if self.btn_out.isChecked():
                     clip.out_mark = self.out_frame
-                    self.message(f'{clip.name.get_value()} mark Out at frame {self.out_frame}')
+                    self.message(
+                            f'{clip.name.get_value()} mark Out at ' +
+                            f'frame {self.out_frame}')
             if self.action == self.actions[1]:
                 clip.in_mark = None
                 self.message(f'{clip.name.get_value()} mark In removed')
