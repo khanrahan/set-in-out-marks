@@ -3,7 +3,7 @@ Script Name: Set In & Out Marks
 Written by: Kieran Hanrahan
 
 Script Version: 1.0.2
-Flame Version: 2023
+Flame Version: 2022
 
 URL: http://www.github.com/khanrahan/set-in-out-marks
 
@@ -1071,5 +1071,5 @@ def get_media_panel_custom_ui_actions():
              'actions': [{'name': 'Set In and Out Marks',
                           'isVisible': scope_clip,
                           'execute': SetInOutMarks,
-                          'minimumVersion': '2023.0.0.0'}]
+                          'minimumVersion': '2022.0.0.0'}]
             }]
