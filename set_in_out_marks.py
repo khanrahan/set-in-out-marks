@@ -862,7 +862,7 @@ class SetInOutMarks:
     """Set in/out marks or clear all marks on selected PyClips."""
 
     def __init__(self, selection):
-
+        """Init SetInOutMarks with defaults."""
         self.selection = selection
 
         self.message(TITLE_VERSION)
