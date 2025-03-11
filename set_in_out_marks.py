@@ -8,7 +8,7 @@ Flame Version: 2025
 URL: http://www.github.com/khanrahan/set-in-out-marks
 
 Creation Date: 01.13.23
-Update Date: 12.18.24
+Update Date: 03.10.25
 
 Description:
     Set in/out or clear all marks on selected clips.
