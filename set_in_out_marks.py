@@ -11,6 +11,7 @@ Creation Date: 01.13.23
 Update Date: 03.10.25
 
 Description:
+
     Set in/out or clear all marks on selected clips.
 
 Menus:
@@ -24,10 +25,13 @@ Menus:
 To Install:
 
     For all users, copy this file to:
-    /opt/Autodesk/shared/python
+    /opt/Autodesk/shared/python/
 
-    For a specific user, copy this file to:
-    /opt/Autodesk/user/<user name>/python
+    For a specific user on Linux, copy this file to:
+    /home/<user_name>/flame/python/
+
+    For a specific user on Mac, copy this file to:
+    /Users/<user_name>/Library/Preferences/Autodesk/flame/python/
 """
 
 from functools import partial
