@@ -39,7 +39,7 @@ TITLE = 'Set In and Out Marks'
 VERSION_INFO = (2, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
 TITLE_VERSION = f'{TITLE} v{VERSION}'
-MESSAGE_PREFIX = '[PYTHON HOOK]'
+MESSAGE_PREFIX = '[PYTHON]'
 
 
 class FlameButton(QtWidgets.QPushButton):
