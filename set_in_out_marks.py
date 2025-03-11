@@ -2,15 +2,16 @@
 Script Name: Set In & Out Marks
 Written by: Kieran Hanrahan
 
-Script Version: 2.0.0
-Flame Version: 2022
+Script Version: 3.0.0
+Flame Version: 2025
 
 URL: http://www.github.com/khanrahan/set-in-out-marks
 
 Creation Date: 01.13.23
-Update Date: 12.18.24
+Update Date: 03.10.25
 
 Description:
+
     Set in/out or clear all marks on selected clips.
 
 Menus:
@@ -24,22 +25,25 @@ Menus:
 To Install:
 
     For all users, copy this file to:
-    /opt/Autodesk/shared/python
+    /opt/Autodesk/shared/python/
 
-    For a specific user, copy this file to:
-    /opt/Autodesk/user/<user name>/python
+    For a specific user on Linux, copy this file to:
+    /home/<user_name>/flame/python/
+
+    For a specific user on Mac, copy this file to:
+    /Users/<user_name>/Library/Preferences/Autodesk/flame/python/
 """
 
 from functools import partial
 
 import flame
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 TITLE = 'Set In and Out Marks'
-VERSION_INFO = (2, 0, 0)
+VERSION_INFO = (3, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
 TITLE_VERSION = f'{TITLE} v{VERSION}'
-MESSAGE_PREFIX = '[PYTHON HOOK]'
+MESSAGE_PREFIX = '[PYTHON]'
 
 
 class FlameButton(QtWidgets.QPushButton):
@@ -605,8 +609,8 @@ class FlameSlider(QtWidgets.QLineEdit):
 
         # Limit characters that can be entered into lineedit
 
-        regex = QtCore.QRegExp('[0-9_,=,/,*,+,\-,.]+')
-        validator = QtGui.QRegExpValidator(regex)
+        regex = QtCore.QRegularExpression('[0-9_,=,/,*,+,\-,.]+')
+        validator = QtGui.QRegularExpressionValidator(regex)
         calc_lineedit.setValidator(validator)
 
         # Buttons
@@ -1002,23 +1006,23 @@ class SetInOutMarks:
         self.cancel_btn = FlameButton('Cancel', cancel_button)
 
         # Shortcuts
-        self.shortcut_enter = QtWidgets.QShortcut(
+        self.shortcut_enter = QtGui.QShortcut(
             QtGui.QKeySequence('Enter'), self.ok_btn, okay_button)
-        self.shortcut_escape = QtWidgets.QShortcut(
+        self.shortcut_escape = QtGui.QShortcut(
             QtGui.QKeySequence('Escape'), self.cancel_btn, self.window.close)
-        self.shortcut_return = QtWidgets.QShortcut(
+        self.shortcut_return = QtGui.QShortcut(
             QtGui.QKeySequence('Return'), self.ok_btn, okay_button)
 
         # Layout
         self.hbox0 = QtWidgets.QHBoxLayout()
-        self.hbox0.setMargin(3)
+        self.hbox0.setContentsMargins(3, 3, 3, 3)
         self.hbox0.setSpacing(3)
         self.hbox0.addWidget(self.label_action)
         self.hbox0.addWidget(self.btn_action)
         self.hbox0.addStretch(1)
 
         self.hbox1 = QtWidgets.QHBoxLayout()
-        self.hbox1.setMargin(3)
+        self.hbox1.setContentsMargins(3, 3, 3, 3)
         self.hbox1.setSpacing(3)
         self.hbox1.addWidget(self.label_marks)
         self.hbox1.addWidget(self.btn_in)
@@ -1029,24 +1033,24 @@ class SetInOutMarks:
         self.hbox1.addStretch(1)
 
         self.hbox2 = QtWidgets.QHBoxLayout()
-        self.hbox2.setMargin(3)
+        self.hbox2.setContentsMargins(3, 3, 3, 3)
         self.hbox2.setSpacing(3)
         self.hbox2.addStretch(1)
         self.hbox2.addWidget(self.cancel_btn)
         self.hbox2.addWidget(self.ok_btn)
 
         self.vbox = QtWidgets.QVBoxLayout()
-        self.vbox.setMargin(0)
+        self.vbox.setContentsMargins(0, 0, 0, 0)
         self.vbox.setSpacing(0)
         self.vbox.addLayout(self.hbox0)
         self.vbox.addLayout(self.hbox1)
-        self.vbox.insertSpacing(3, 20)
+        self.vbox.addSpacing(20)
         self.vbox.addLayout(self.hbox2)
 
         self.window.setLayout(self.vbox)
 
         # Center Window
-        resolution = QtWidgets.QDesktopWidget().screenGeometry()
+        resolution = QtGui.QGuiApplication.primaryScreen().availableGeometry()
 
         self.window.move(resolution.center().x() - self.window_size['x'] / 2,
                          resolution.center().y() - self.window_size['y'] / 2)
@@ -1062,7 +1066,7 @@ def scope_clip(selection):
     PyClip includes PySequence.  It is the parent, so this will be true
     for individual clips or full sequences.
     """
-    return any(isinstance(item, flame.PyClip) for item in selection)
+    return all(isinstance(item, flame.PyClip) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
@@ -1071,5 +1075,5 @@ def get_media_panel_custom_ui_actions():
              'actions': [{'name': 'Set In and Out Marks',
                           'isVisible': scope_clip,
                           'execute': SetInOutMarks,
-                          'minimumVersion': '2022.0.0.0'}]
+                          'minimumVersion': '2025.0.0.0'}]
             }]
