@@ -1062,7 +1062,7 @@ def scope_clip(selection):
     PyClip includes PySequence.  It is the parent, so this will be true
     for individual clips or full sequences.
     """
-    return any(isinstance(item, flame.PyClip) for item in selection)
+    return all(isinstance(item, flame.PyClip) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
